@@ -1,0 +1,26 @@
+	$sql = "SELECT sifre, uid FROM uyeler WHERE email = '".koruma($email)."' AND aktif = 1";
+
+		$sonuc = sorgula($sql);
+
+		if(kayitSayisi($sonuc) == 1) {
+
+			$satir = veriYakala($sonuc);
+
+			$vt_sifre = $satir['sifre'];
+
+			if(md5($sifre) === $vt_sifre) {
+
+				if($hatirla == "on") {
+					setcookie('email', $email, time() + 7*24*60*60);
+				}  
+                $_SESSION['email'] = $email;
+				return true;
+			} 
+             else {
+				return false;
+			      }
+			// return true;
+		} 
+            else {
+			return false;
+		}  

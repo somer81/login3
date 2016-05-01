@@ -1,0 +1,4 @@
+
+  function selamver() {
+alert("Hoşgeldin"); 
+}
