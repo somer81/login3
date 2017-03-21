@@ -16,7 +16,10 @@
             <li><a href="kayit.php">Kayıt</a></li>
             <li><a href="admin.php">Yönetici</a></li>
             <li><a href="giris.php">Giriş Yap</a></li>
-            <li><a href="cikis.php">Çıkış Yap</a></li>
+            <?php 
+            if(isset($_SESSION['email']))
+            echo '<li><a href="cikis.php">Çıkış Yap</a></li>';
+            ?>
             <li><a href="#contact">İletişim</a></li>
           </ul>
         </div><!--/.nav-collapse -->
